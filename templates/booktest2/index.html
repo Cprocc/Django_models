@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    {% for book in list %}
+        <li>{{ book.b_title }}"book read count"{{ book.b_read }}"book comment count"{{ book.b_comment }}</li>
+    {% endfor %}
+</ul>
+</body>
+</html>

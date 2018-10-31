@@ -2,8 +2,11 @@ from django.db import models
 
 # Create your models here.
 
+# 更改标的结构一定要重新迁移，迁移的表最好是空的
+
 
 # 改写默认的manage方法，改写get_queryset方法，更改默认的查询操作，可以配合filter过滤
+# 调用all()方法，就会体现出get_queryset的区别
 class BookInfoManage(models.Manager):
     def get_queryset(self):
         return super(BookInfoManage, self).get_queryset().filter(isDelete=False)
@@ -31,6 +34,7 @@ class BookInfo(models.Model):
     isDelete = models.BooleanField(default=False)
 
     # 用类方法，模拟类的自定义。因为__init__方法已经被model中使用
+    # 不推荐的用法
     @classmethod
     def create(cls, title, pub_date):
         book = cls(b_title=title, b_pub_date=pub_date)
