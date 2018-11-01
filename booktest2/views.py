@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from django.db.models import Max, F, Q
-from .models import *
+from django.urls import reverse
 from django.http import HttpResponse, HttpResponseRedirect
+from .models import *
 from datetime import *
 
 
@@ -80,8 +81,29 @@ def cookie_test(request):
 
 def redirect1(request):
     # return HttpResponseRedirect('/booktest2/redirect2/')
-    return redirect('/booktest2/redirect2/')
+    return redirect('booktest2/redirect2/')
 
 
 def redirect2(request):
     return HttpResponse("你是被动来到这里的")
+
+
+def session1(request):
+    context = {'uname': request.session.get('myname', "未登录")}
+    return render(request, 'booktest2/session1.html', context)
+
+
+def session2(request):
+    return render(request, 'booktest2/session2.html')
+
+
+def session2_handle(request):
+    uname = request.POST['uname']
+    request.session['myname'] = uname
+    return redirect('/booktest2/session1/')
+
+
+def session3(request):
+    if "myname" in request.session:
+        del request.session['myname']
+    return redirect('/booktest2/session1')

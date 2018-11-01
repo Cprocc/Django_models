@@ -11,5 +11,11 @@ urlpatterns = [
     url(r'^post_request_test2/$', views.post_request_test2),
     url(r"^cook_test/$", views.cookie_test),
     url(r"^redirect1/$", views.redirect1),
-    url(r"^redirect2/$", views.redirect2)
+    url(r"^redirect2/$", views.redirect2),
+    url(r"^session1/$", views.session1),
+    url(r"^session2/$", views.session2),
+    url(r"^session2_handle/$", views.session2_handle),
+    url(r"^session3/$", views.session3)
+
+
 ]
