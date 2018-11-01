@@ -78,7 +78,7 @@ def cookie_test(request):
     return response
 
 
-def redirect(request):
+def redirect1(request):
     # return HttpResponseRedirect('/booktest2/redirect2/')
     return redirect('/booktest2/redirect2/')
 

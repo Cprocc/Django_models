@@ -10,6 +10,6 @@ urlpatterns = [
     url(r'^post_request_test/$', views.post_request_test),
     url(r'^post_request_test2/$', views.post_request_test2),
     url(r"^cook_test/$", views.cookie_test),
-    url(r"^redirect/$", views.redirect),
+    url(r"^redirect1/$", views.redirect1),
     url(r"^redirect2/$", views.redirect2)
 ]
