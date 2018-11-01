@@ -45,3 +45,20 @@ def one_key_more_value(request):
     a1 = request.GET.getlist('a')
     context = {"a": a1}
     return render(request, 'booktest2/one_key_more_value.html', context)
+
+
+def post_request_test(request):
+    return render(request, 'booktest2/post_request_test.html')
+
+
+def post_request_test2(request):
+    uname=request.POST['uname']
+    upwd=request.POST['upwd']
+    ugender=request.POST.get('ugender')
+    uhobby=request.POST.getlist('uhobby')
+    context = {
+        'uname': uname,
+        'upwd': upwd,
+        'ugender': ugender,
+        'uhobby': uhobby}
+    return render(request, 'booktest2/post_request_test2.html', context)
