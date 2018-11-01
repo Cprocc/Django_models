@@ -1,9 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.db.models import Max, F, Q
 from .models import *
-from django.http import HttpResponse
-
-# Create your views here.
+from django.http import HttpResponse, HttpResponseRedirect
+from datetime import *
 
 
 def index(request):
@@ -62,3 +61,27 @@ def post_request_test2(request):
         'ugender': ugender,
         'uhobby': uhobby}
     return render(request, 'booktest2/post_request_test2.html', context)
+
+
+def cookie_test(request):
+    response = HttpResponse()
+    # 拿cookie
+    test_cookie = request.COOKIES
+    # if 't1' in test_cookie.has_key:
+    if 't1' in test_cookie.keys():
+        response.write(test_cookie['t1'])
+    else:
+        response.write("no such cookie")
+
+    # cookies写入之后，再次请求，浏览器的request中就会带上，默认时间是保存两周
+    # response.set_cookie('t1', 'abc')
+    return response
+
+
+def redirect(request):
+    # return HttpResponseRedirect('/booktest2/redirect2/')
+    return redirect('/booktest2/redirect2/')
+
+
+def redirect2(request):
+    return HttpResponse("你是被动来到这里的")

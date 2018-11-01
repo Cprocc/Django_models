@@ -8,5 +8,8 @@ urlpatterns = [
     url(r'^one_key_one_value/$', views.one_key_one_value),
     url(r'^one_key_more_value/$', views.one_key_more_value),
     url(r'^post_request_test/$', views.post_request_test),
-    url(r'^post_request_test2/$', views.post_request_test2)
+    url(r'^post_request_test2/$', views.post_request_test2),
+    url(r"^cook_test/$", views.cookie_test),
+    url(r"^redirect/$", views.redirect),
+    url(r"^redirect2/$", views.redirect2)
 ]
