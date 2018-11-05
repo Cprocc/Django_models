@@ -15,7 +15,13 @@ urlpatterns = [
     url(r"^session1/$", views.session1),
     url(r"^session2/$", views.session2),
     url(r"^session2_handle/$", views.session2_handle),
-    url(r"^session3/$", views.session3)
+    url(r"^session3/$", views.session3),
+    url(r"^get_name/$", views.get_name),
+    url(r"^(\d+)/$", views.show_url, name='show_url'),
+    url(r"^basedbase1/$", views.basedbase1),
+    url(r'^login$', views.login, name='index'),
+    url(r'^documentlist/$', views.documentlist, name='list'),
+    url(r'^userpwd/$', views.userpwd, name='pwd'),
 
 
 ]

@@ -107,3 +107,34 @@ def session3(request):
     if "myname" in request.session:
         del request.session['myname']
     return redirect('/booktest2/session1')
+
+
+def get_name(request):
+    hero = HeroInfo.objects.get(pk=1)
+    context = {'hero': hero}
+    return render(request, "booktest2/get_name.html", context)
+
+
+def show_url(request, use_id):
+    context = {"id": use_id}
+    return render(request, "booktest2/show_url.html", context)
+
+
+def basedbase1(request):
+    return render(request, "booktest2/basedbase1.html")
+
+
+def login(request):
+    logo = " welcome to zxc's blog "
+    return render(request, 'WebHtml/login.html', {'logo': logo})
+
+
+def documentlist(request):
+    logo = " welcome to zxc's blog "
+    return render(request, 'WebHtml/documentlist.html', {'logo': logo})
+
+
+def userpwd(request):
+    logo = " welcome to zxc's blog "
+    return render(request, 'WebHtml/userpwd.html', {'logo': logo})
+

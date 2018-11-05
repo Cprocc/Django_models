@@ -60,3 +60,6 @@ class HeroInfo(models.Model):
     isDelete = models.BooleanField(default=False)
     h_content = models.CharField(max_length=100)
     h_book = models.ForeignKey('BookInfo', on_delete=True)
+
+    def show_name(self):
+        return self.h_name
