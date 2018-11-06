@@ -20,5 +20,5 @@ from django.conf.urls import include, url
 urlpatterns = [
     path('admin/', admin.site.urls),
     url(r"^booktest2/", include(('booktest2.urls'))),
-    url(r"^WebHtml/", include('booktest2.urls'))
+    url(r"^WebHtml/", include('booktest2.urls')),
 ]

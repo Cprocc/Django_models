@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from . import views
+from .import views
 
 urlpatterns = [
     url(r'^$', views.index),
@@ -26,5 +26,7 @@ urlpatterns = [
     url(r'^csrf2/$', views.csrf2),
     # url(r'^verify_code/$', views.verify_code),
     url(r'^HelloStatic/$', views.hello_guide),
+    url(r'^upload_pic/$', views.upload_pic),
+    url(r'^upload_handle/$', views.upload_handle)
 
 ]
