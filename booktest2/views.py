@@ -192,7 +192,7 @@ def upload_handle(request):
     if request.method == "POST":
         f1 = request.FILES['pic1']
         f_name = '%s/cars/%s' % (settings.MEDIA_ROOT, f1.name)
-
+        # 定义打开方式wb，则在write函数时可以用二进制写入，不然图片打不开
         with open(f_name, 'wb') as pic:
             for c in f1.chunks():
                 pic.write(c)
