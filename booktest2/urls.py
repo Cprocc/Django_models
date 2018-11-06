@@ -24,6 +24,7 @@ urlpatterns = [
     url(r'^userpwd/$', views.userpwd, name='pwd'),
     url(r'^csrf1/$', views.csrf1),
     url(r'^csrf2/$', views.csrf2),
-    url(r'^verify_code/$', views.verify_code),
+    # url(r'^verify_code/$', views.verify_code),
+    url(r'^HelloStatic/$', views.hello_guide),
 
 ]

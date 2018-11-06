@@ -177,3 +177,7 @@ def verify_code(request):
     buf = StringIO()
     im.save(buf, format('png'))
     return HttpResponse(buf.getvalue(), 'image/png')
+
+
+def hello_guide(request):
+    return render(request, 'WebHtml/HelloStatic.html')

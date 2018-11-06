@@ -5,8 +5,11 @@
     <title>Title</title>
 </head>
 <body>
-<a href="/booktest2/12343">展示</a>
+
+{#{% load static from staticfiles %}#}
+{#<img src="{% static 'booktest2/guide.jpg' %}" width="1195" height="501" />#}
 <hr>
+
 {{ hero.show_name }}
 <ul>
     {% for book in list %}
