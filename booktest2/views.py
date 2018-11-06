@@ -146,3 +146,34 @@ def csrf1(request):
 def csrf2(request):
     uname = request.POST['uname']
     return render(request, 'booktest2/csrf2.html', {'uname': uname})
+
+
+def verify_code(request):
+    from PIL import Image, ImageDraw, ImageFont
+    import random
+    bg_color = (random.randrange(20, 100), random.randrange(20, 100), 255)
+    width = 100
+    height = 25
+    im = Image.new('RGB', (width, height), bg_color)
+    draw = ImageDraw.Draw(im)
+    # point function make some noise
+    for i in range(0, 100):
+        xy = (random.randrange(0, width), random.randrange(0, height))
+        fill = (random.randrange(0, 255), 255, random.randrange(0, 255))
+        draw.point(xy, fill=fill)
+    str1 = """ABCD123EFGHIJK456LMNOPQRS789TYVWXYZ0"""
+    rand_str = ' '
+    for i in range(0, 4):
+        rand_str += str1[random.randrange(0, len(str1))]
+    font = ImageFont.truetype('symbol.ttf', 23)
+    font_color = (255, random.randrange(0, 255), random.randrange(0, 255))
+    draw.text((5, 2), rand_str[0], font=font, fill=font_color)
+    draw.text((25, 2), rand_str[1], font=font, fill=font_color)
+    draw.text((50, 2), rand_str[2], font=font, fill=font_color)
+    draw.text((75, 2), rand_str[3], font=font, fill=font_color)
+    del draw
+    request.session['verify_code_char'] = rand_str
+    from io import StringIO
+    buf = StringIO()
+    im.save(buf, format('png'))
+    return HttpResponse(buf.getvalue(), 'image/png')
