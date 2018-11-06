@@ -139,4 +139,10 @@ def userpwd(request):
     return render(request, 'WebHtml/userpwd.html', {'logo': logo})
 
 
-# what happen? github does not work
+def csrf1(request):
+    return render(request, 'booktest2/csrf1.html')
+
+
+def csrf2(request):
+    uname = request.POST['uname']
+    return render(request, 'booktest2/csrf2.html', {'uname': uname})

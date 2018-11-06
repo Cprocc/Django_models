@@ -22,6 +22,8 @@ urlpatterns = [
     url(r'^login$', views.login, name='index'),
     url(r'^documentlist/$', views.documentlist, name='list'),
     url(r'^userpwd/$', views.userpwd, name='pwd'),
+    url(r'^csrf1/$', views.csrf1),
+    url(r'^csrf2/$', views.csrf2),
 
 
 ]
