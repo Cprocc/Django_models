@@ -1,17 +1,14 @@
 from django.db import models
-
-# Create your models here.
-
 # 更改标的结构一定要重新迁移，迁移的表最好是空的
-
-
 # 改写默认的manage方法，改写get_queryset方法，更改默认的查询操作，可以配合filter过滤
 # 调用all()方法，就会体现出get_queryset的区别
+
+
 class BookInfoManage(models.Manager):
     def get_queryset(self):
         return super(BookInfoManage, self).get_queryset().filter(isDelete=False)
-
     # 再管理器中自定义创建模型类的方法
+
     def create_book(self, title, pub_date):
         # book = self.model()
         # book.b_title = title
@@ -19,7 +16,6 @@ class BookInfoManage(models.Manager):
         # book.b_read = 0
         # book.b_comment = 0
         # book.isDelete = False
-
         # 免除save()过程的一种方法
         book = self.create(b_title=title, b_pub_date=pub_date,
                            b_read=0, b_comment=0, isDelete=False)

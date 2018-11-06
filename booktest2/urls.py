@@ -27,6 +27,8 @@ urlpatterns = [
     # url(r'^verify_code/$', views.verify_code),
     url(r'^HelloStatic/$', views.hello_guide),
     url(r'^upload_pic/$', views.upload_pic),
-    url(r'^upload_handle/$', views.upload_handle)
+    url(r'^upload_handle/$', views.upload_handle),
+    url(r'^hero_list_paging/$', views.hero_list_paging),
+    url(r'^hero_list_paging/(\d*)/$', views.hero_list_paging),
 
 ]

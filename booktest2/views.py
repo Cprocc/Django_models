@@ -5,6 +5,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from .models import *
 from datetime import *
 from django.conf import settings
+from django.core.paginator import Paginator
 
 
 def index(request):
@@ -199,3 +200,11 @@ def upload_handle(request):
         return HttpResponse("ok")
     else:
         return HttpResponse("error")
+
+
+def hero_list_paging(request, p_index=1):
+    list_hero = HeroInfo.objects.all()
+    paginator = Paginator(list_hero, 5)
+    page = paginator.page(int(p_index))
+    context = {'page': page}
+    return render(request, "booktest2/hero_list_paging.html", context)
