@@ -1,11 +1,10 @@
 from django.shortcuts import render, redirect
 from django.db.models import Max, F, Q
-from django.urls import reverse
-from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
-from .models import *
-from datetime import *
+from django.http import HttpResponse, JsonResponse
 from django.conf import settings
 from django.core.paginator import Paginator
+from django.views.decorators.cache import cache_page
+from .models import *
 
 
 def index(request):
@@ -243,4 +242,9 @@ def content(request):
     hero_info.save()
 
     return render(request, 'other/content.html', {'hero': hero_info})
+
+
+@cache_page(60*10)
+def cache1(request):
+    return HttpResponse('hello ache')
 
