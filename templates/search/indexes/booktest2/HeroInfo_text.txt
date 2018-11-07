@@ -1,2 +1,2 @@
-{{ h_name }}
-{{ h_content }}
+{{ object.h_name }}
+{{ object.h_content }}

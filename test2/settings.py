@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'booktest2.apps.Booktest2Config',
     'tinymce',
     # 'haystack',
+    'djcelery'
 ]
 
 MIDDLEWARE = [
