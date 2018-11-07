@@ -17,7 +17,7 @@ urlpatterns = [
     url(r"^session2_handle/$", views.session2_handle),
     url(r"^session3/$", views.session3),
     url(r"^get_name/$", views.get_name),
-    url(r"^(\d+)/$", views.show_url, name='show_url'),
+    # url(r"^(\d+)/$", views.show_url, name='show_url'),
     url(r"^basedbase1/$", views.basedbase1),
     url(r'^login$', views.login, name='index'),
     url(r'^documentlist/$', views.documentlist, name='list'),
@@ -30,5 +30,8 @@ urlpatterns = [
     url(r'^upload_handle/$', views.upload_handle),
     url(r'^hero_list_paging/$', views.hero_list_paging),
     url(r'^hero_list_paging/(\d*)/$', views.hero_list_paging),
+    url(r'^select_area_index/$', views.select_area_index),
+    url(r'^get_area1/$', views.get_area1),
+    url(r'^get_area1/([0-9]+)/$', views.get_area2),
 
 ]

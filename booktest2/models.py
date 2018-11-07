@@ -59,3 +59,9 @@ class HeroInfo(models.Model):
 
     def show_name(self):
         return self.h_name
+
+
+class AreaInfo(models.Model):
+    a_id = models.IntegerField(primary_key=True)
+    a_title = models.CharField(max_length=20)
+    a_PArea = models.ForeignKey('AreaInfo', null=True, on_delete=True)

@@ -21,4 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     url(r"^booktest2/", include(('booktest2.urls'))),
     url(r"^WebHtml/", include('booktest2.urls')),
+    url(r"^CityInfo/", include('booktest2.urls')),
 ]

@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.db.models import Max, F, Q
 from django.urls import reverse
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from .models import *
 from datetime import *
 from django.conf import settings
@@ -208,3 +208,23 @@ def hero_list_paging(request, p_index=1):
     page = paginator.page(int(p_index))
     context = {'page': page}
     return render(request, "booktest2/hero_list_paging.html", context)
+
+
+def select_area_index(request):
+    return render(request, "CityInfo/select_area_index.html")
+
+
+def get_area1(request):
+    area_list = AreaInfo.objects.filter(a_PArea__isnull=True)
+    list2 = []
+    for a in area_list:
+        list2.append([a.a_id, a.a_title])
+    return JsonResponse({'data': list2})
+
+
+def get_area2(request, pid):
+    area_list = AreaInfo.objects.filter(a_PArea_id=pid)
+    list2 = []
+    for a in area_list:
+        list2.append({'id': a.a_id, 'title': a.a_title})
+    return JsonResponse({'data': list2})
