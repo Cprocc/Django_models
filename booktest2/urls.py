@@ -32,6 +32,7 @@ urlpatterns = [
     url(r'^hero_list_paging/(\d*)/$', views.hero_list_paging),
     url(r'^select_area_index/$', views.select_area_index),
     url(r'^get_area1/$', views.get_area1),
-    url(r'^get_area1/([0-9]+)/$', views.get_area2),
+    url(r'^get_area2(\d+)/$', views.get_area2),
+    url(r'^([0-9]+)/$', views.get_area2),
 
 ]
