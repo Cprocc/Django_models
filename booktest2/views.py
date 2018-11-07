@@ -228,3 +228,19 @@ def get_area2(request, pid):
     for a in area_list:
         list2.append({'id': a.a_id, 'title': a.a_title})
     return JsonResponse({'data': list2})
+
+
+def editor(request):
+    return render(request, "other/editor.html")
+
+
+def content(request):
+    h_name = request.POST['h_name']
+    h_content = request.POST['h_content']
+    hero_info = HeroInfo.objects.get(pk=1)
+    hero_info.h_name = h_name
+    hero_info.h_content = h_content
+    hero_info.save()
+
+    return render(request, 'other/content.html', {'hero': hero_info})
+

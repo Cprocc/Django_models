@@ -22,4 +22,5 @@ urlpatterns = [
     url(r"^booktest2/", include(('booktest2.urls'))),
     url(r"^WebHtml/", include('booktest2.urls')),
     url(r"^CityInfo/", include('booktest2.urls')),
+    url(r'^tinymce/', include('tinymce.urls')),
 ]

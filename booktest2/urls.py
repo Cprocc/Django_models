@@ -33,6 +33,6 @@ urlpatterns = [
     url(r'^select_area_index/$', views.select_area_index),
     url(r'^get_area1/$', views.get_area1),
     url(r'^get_area2(\d+)/$', views.get_area2),
-    url(r'^([0-9]+)/$', views.get_area2),
-
+    url(r'^editor/$', views.editor, name='editor'),
+    url(r'^content/$', views.content, name='content'),
 ]

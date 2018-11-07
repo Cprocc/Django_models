@@ -1,4 +1,5 @@
 from django.db import models
+from tinymce.models import HTMLField
 # 更改标的结构一定要重新迁移，迁移的表最好是空的
 # 改写默认的manage方法，改写get_queryset方法，更改默认的查询操作，可以配合filter过滤
 # 调用all()方法，就会体现出get_queryset的区别
@@ -59,9 +60,11 @@ class HeroInfo(models.Model):
 
     def show_name(self):
         return self.h_name
+    h_content = HTMLField()
 
 
 class AreaInfo(models.Model):
     a_id = models.IntegerField(primary_key=True)
     a_title = models.CharField(max_length=20)
     a_PArea = models.ForeignKey('AreaInfo', null=True, on_delete=True)
+
