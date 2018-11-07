@@ -23,4 +23,5 @@ urlpatterns = [
     url(r"^WebHtml/", include('booktest2.urls')),
     url(r"^CityInfo/", include('booktest2.urls')),
     url(r'^tinymce/', include('tinymce.urls')),
+    # url(r"^search/$", include('haystack.urls')),
 ]

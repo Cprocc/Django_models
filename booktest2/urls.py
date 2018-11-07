@@ -35,5 +35,5 @@ urlpatterns = [
     url(r'^get_area2(\d+)/$', views.get_area2),
     url(r'^editor/$', views.editor, name='editor'),
     url(r'^content/$', views.content, name='content'),
-    url(r"^cache1$", views.cache1)
+    url(r"^cache1$", views.cache1),
 ]
